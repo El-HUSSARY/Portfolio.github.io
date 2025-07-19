@@ -320,6 +320,10 @@
             mix-blend-mode: normal;
         }
 
+        .mobile-logo-first {
+            display: none;
+        }
+
         .floating-elements {
             position: absolute;
             width: 100%;
@@ -1075,40 +1079,77 @@
             }
         }
 
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .section-title h2 {
-                font-size: 2.2rem;
+        /* تكبير العناصر في PC */
+        @media (min-width: 992px) {
+            .hero h1 {
+                font-size: 3rem !important;
             }
-            
+            .hero p {
+                font-size: 1.4rem !important;
+            }
+            .btn {
+                padding: 15px 30px !important;
+                font-size: 1.1rem !important;
+            }
+            .hero-image {
+                width: 45% !important;
+            }
+            .section-title h2 {
+                font-size: 3rem !important;
+            }
             .section-title p {
-                font-size: 1rem;
+                font-size: 1.3rem !important;
+            }
+            .about-text h3 {
+                font-size: 2.2rem !important;
+            }
+            .about-text p {
+                font-size: 1.1rem !important;
+            }
+            .skills-category h3 {
+                font-size: 1.8rem !important;
+            }
+            .skill-name {
+                font-size: 1.1rem !important;
+            }
+            .project-overlay h4 {
+                font-size: 1.5rem !important;
+            }
+            .project-overlay p {
+                font-size: 1.1rem !important;
             }
         }
 
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .hero-image {
-                width: 50%;
-            }
+        /* إظهار وإخفاء الصور حسب نوع الجهاز */
+        .desktop-only {
+            display: block;
+        }
+        .mobile-logo-first {
+            display: none;
         }
 
         @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+            .mobile-logo-first {
+                display: block;
+                position: relative !important;
+                right: auto !important;
+                top: auto !important;
+                transform: none !important;
+                width: 80% !important;
+                margin: 0 auto 30px auto !important;
+                order: -1;
+            }
+            .hero {
+                flex-direction: column;
+                display: flex;
+                padding-top: 80px;
+                height: auto;
+                min-height: 100vh;
+            }
+            
             header {
                 height: 50px;
             }
@@ -1154,14 +1195,6 @@
                 margin-top: 15px;
             }
 
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 70px;
-                height: auto;
-                padding-bottom: 50px;
-            }
-
             .hero-content {
                 max-width: 100%;
                 margin-bottom: 40px;
@@ -1183,15 +1216,6 @@
                 gap: 10px;
             }
 
-            .hero-image {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                width: 80%;
-                margin: 0 auto;
-            }
-
             .section-title h2 {
                 font-size: 1.8rem;
             }
@@ -1206,10 +1230,6 @@
             
             .about-text {
                 padding: 20px;
-            }
-            
-            .about-text h3 {
-                font-size: 1.6rem;
             }
             
             .about-text p {
@@ -1323,6 +1343,12 @@
             <div class="floating-element"></div>
             <div class="floating-element"></div>
         </div>
+        
+        <!-- صورة اللوجو للجوال (تظهر أولاً) -->
+        <div class="hero-image mobile-logo-first">
+            <img src="https://i.ibb.co/5XFhFN6d/Web-Logo-1.png" alt="AbdulRahman Essam">
+        </div>
+        
         <div class="hero-content">
             <h1 data-en="Hi, I'm <span>AbdulRahman Essam</span>" data-ar="مرحباً، أنا <span>عبدالرحمن عصام</span>">Hi,
                 I'm <span>AbdulRahman Essam</span></h1>
@@ -1337,7 +1363,9 @@
                 <a href="#contact" class="btn btn-outline" data-en="Contact Me" data-ar="اتصل بي">Contact Me</a>
             </div>
         </div>
-        <div class="hero-image">
+        
+        <!-- صورة اللوجو للكمبيوتر (تظهر فقط في الشاشات الكبيرة) -->
+        <div class="hero-image desktop-only">
             <img src="https://i.ibb.co/5XFhFN6d/Web-Logo-1.png" alt="AbdulRahman Essam">
         </div>
     </section>
